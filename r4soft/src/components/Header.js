@@ -6,7 +6,7 @@ const Header = () => {
             <nav className='navbar row'>
                 <div className='col-12 col-md-3'>
                     <div className='navbar-brand'>
-                        <img src="/r4soft/public/konecta.jpg" alt="Konecta"></img>
+                        <img src="../../public/konecta.jpg" alt="Konecta"></img>
                     </div>
                 </div>
 
@@ -16,7 +16,7 @@ const Header = () => {
                             type="text"
                             id="search_field"
                             class="form-control"
-                            placeholder='¿Que producto busca?'></input>
+                            placeholder='Aqui puedes buscar informacion'></input>
                         <div class="input-group-append">
                             <button id="search-btn" class="btn">
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
