@@ -1,0 +1,17 @@
+//import logo from './favicon.ico';
+import './App.css';
+import Header from './components/Header';
+import { Footer } from './components/Footer';
+
+function App() {
+  return (
+
+    <div>
+      <Header />
+      <Footer />
+    </div>
+
+  );
+}
+
+export default App;
