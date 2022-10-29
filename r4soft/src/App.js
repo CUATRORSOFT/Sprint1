@@ -5,6 +5,8 @@ import { Footer } from './components/Footer';
 import { useAuth0 } from "@auth0/auth0-react";
 import LoginButton from "./components/LoginButton";
 import LogoutButton from "./components/LogoutButton";
+import Home from './components/Home';
+import Metricas from './components/Metricas';
 
 function App() {
   const { isAuthenticated, isLoading } = useAuth0();
@@ -16,7 +18,11 @@ function App() {
     <div>
       {isAuthenticated ? <LogoutButton /> : <LoginButton />}
       <Header />
-      <Footer />
+      <Home />
+      <Metricas />
+      <section>
+      <Footer/>
+      </section>
     </div>
 
   );
