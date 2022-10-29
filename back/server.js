@@ -1,5 +1,6 @@
 const express = require('express');
 const cors = require('cors');
+const { dataConect, data } = require('./connection');
 
 
 class Server {
@@ -7,6 +8,7 @@ class Server {
     constructor() {
         this.app  = express();
         this.port = process.env.PORT;
+        this.usuariosPath = '/api/data';
 
         // this.paths = {
         //     usuarios:   '/api/usuarios',
@@ -16,8 +18,8 @@ class Server {
         // Middlewares
         this.middlewares();
 
-        // // Rutas de mi aplicación
-        // this.routes();
+        // Rutas de mi aplicación
+        this.routes();
     }
 
 
@@ -30,12 +32,11 @@ class Server {
         // Lectura y parseo del body
         this.app.use( express.json() );
 
-
     }
 
-    // routes() {
-    //     this.app.use( this.paths.usuarios, require('../routes/usuarios'));        
-    // }
+    routes() {
+        this.app.use( this.usuariosPath, require('./routes/routes'));        
+    }
 
     listen() {
         this.app.listen( this.port, () => {
