@@ -5,7 +5,6 @@ import { Footer } from './components/Footer';
 import Home from './components/Home';
 import Metricas from './components/Metricas';
 
-
 function App() {
   return (
 
@@ -14,7 +13,7 @@ function App() {
       <Home />
       <Metricas />
       <section>
-      <Footer />
+      <Footer/>
       </section>
     </div>
 
