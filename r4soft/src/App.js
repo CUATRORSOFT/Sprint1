@@ -2,8 +2,9 @@
 import './App.css';
 import Header from './components/Header';
 import { Footer } from './components/Footer';
-import Home from '/components/Home';
-import Metricas from '/components/Metricas';
+import Home from './components/Home';
+import Metricas from './components/Metricas';
+
 
 function App() {
   return (
@@ -13,9 +14,8 @@ function App() {
       <Home />
       <Metricas />
       <section>
-      <Footer>
-      </section>
       <Footer />
+      </section>
     </div>
 
   );
