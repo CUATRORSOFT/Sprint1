@@ -1,4 +1,6 @@
+const { response, request } = require('express');
 const axios = require("axios");
+
 
 require('dotenv').config()
 
@@ -39,13 +41,15 @@ const dataConect = async () => {
 
 }
 
+console.log(dataConect);
 
-const data = () => {
+
+const data = async(req, res = response) => {
 
     
-    const {payload} = dataConect();
+    const payload = await dataConect();
     
-    const { data } = payload;
+    const { data } = payload.payload;
     
     const { event } = data.onCreateHackathonEvents;
     
@@ -71,11 +75,30 @@ const data = () => {
         console.log("***************************");
         //     })
     })
-    //     return events
+
+    var myJSONString = JSON.stringify(eventos);
+    var myEscapedJSONString = myJSONString.replace(/\\n/g, "\\n")
+                                      .replace(/\\'/g, "\\'")
+                                      .replace(/\\"/g, '\\"')
+                                      .replace(/\\&/g, "\\&")
+                                      .replace(/\\r/g, "\\r")
+                                      .replace(/\\t/g, "\\t")
+                                      .replace(/\\b/g, "\\b")
+                                      .replace(/\\f/g, "\\f");
+
+
+    res.json(myEscapedJSONString)
+    console.log(typeof eventos);
     // }
+}
+
+const getInfo = (req = request, res = response)=> {
+
+
 }
     
 data()
     module.exports = {
     dataConect,
+    data
 }
