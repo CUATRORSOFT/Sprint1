@@ -44,61 +44,69 @@ const dataConect = async () => {
 console.log(dataConect);
 
 
-const data = async(req, res = response) => {
+const data_1 = async(req, res = response) => {
 
-    
-    const payload = await dataConect();
-    
-    const { data } = payload.payload;
-    
-    const { event } = data.onCreateHackathonEvents;
-    
-    let eventos = JSON.parse(event);
-    
-    const { events } = eventos.detail;
-    
-    
-    
-    
-    
-    
-    // const getData = () => {
-    events.map( evento => {
-        const  {eventBody} = evento.detail;
-        const { service, data } = eventBody;
+                            
+        const payload = await dataConect();
         
-        console.log("========================");
-        console.log(evento);
-        console.log(service);
-        console.log("---------------------------");
-        console.log(data.metrics);
-        console.log("***************************");
-        //     })
-    })
+        const { data } = payload.payload;
+        
+        const { event } = data.onCreateHackathonEvents;
+        
+        let eventos = JSON.parse(event);
+        
+        const { events } = eventos.detail;
 
-    var myJSONString = JSON.stringify(eventos);
-    var myEscapedJSONString = myJSONString.replace(/\\n/g, "\\n")
-                                      .replace(/\\'/g, "\\'")
-                                      .replace(/\\"/g, '\\"')
-                                      .replace(/\\&/g, "\\&")
-                                      .replace(/\\r/g, "\\r")
-                                      .replace(/\\t/g, "\\t")
-                                      .replace(/\\b/g, "\\b")
-                                      .replace(/\\f/g, "\\f");
+        const evento_1 = events[0]
+
+        const  { eventBody } = evento_1.detail;
+        const { service, data: datos } = eventBody;
+
+        const { users } = service
+        const { metrics } = datos
 
 
-    res.json(myEscapedJSONString)
-    console.log(typeof eventos);
-    // }
+        res.json({
+            users,
+            metrics
+        })
+        
 }
 
-const getInfo = (req = request, res = response)=> {
+const data_2 = async(req, res = response) => {
+
+                            
+        const payload = await dataConect();
+        
+        const { data } = payload.payload;
+        
+        const { event } = data.onCreateHackathonEvents;
+        
+        let eventos = JSON.parse(event);
+        
+        const { events } = eventos.detail;
+
+        const evento_2 = events[1]
 
 
+        const  { eventBody } = evento_2.detail;
+        const { service, data: datos } = eventBody;
+
+        const { users } = service
+        const { metrics } = datos
+
+
+        res.json({
+            users,
+            metrics
+        })
+        
 }
-    
-data()
+
+
+
     module.exports = {
     dataConect,
-    data
+    data_1,
+    data_2
 }
